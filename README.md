@@ -1,21 +1,44 @@
-# 🖼️ Cover Preview Generator
+# Flit Watermark Tool (FWT)
 
-一键为图片添加半透明水印，生成 50% 分辨率的 JPG 预告图。  
-🍎 专为 macOS 设计（兼容 M1/M2），纯本地处理。
+轻量级跨平台图片水印编辑器，支持交互式文字水印的拖拽、旋转、缩放及样式调节，提供实时预览与中英文界面。
 
-## ✨ 功能
-- 🖌️ 半透明文字水印，支持中英文
-- 📐 分辨率减半，适合预告图
-- ⚡ 仅需 Pillow，无网络依赖
+## 功能
 
-## 📦 安装
-```bash
-pip install Pillow
-```
-🚀 使用
-bash
-python watermark_preview.py 图片.jpg
-# 自定义
-python watermark_preview.py 图片.png -o 预告.jpg --text "抢先看" --font /System/Library/Fonts/PingFang.ttc
-📄 许可
+- 交互式编辑：在预览画布上直接拖动、旋转和缩放水印文字。
+- 参数调节：修改文字内容、字体、字号、不透明度、旋转角度和颜色。
+- 输出缩放：生成图片时可选择 100%、50%、20% 的缩放比例。
+- 实时预览：调整参数立即反映在画布上。
+- 系统字体：自动列出当前系统可用字体，支持多语言文字显示。
+- 多语言：启动时根据系统语言自动选择中文或英文，菜单可随时切换。
+- 快捷操作：一键保存为 JPEG，复制到剪贴板，打开输出目录。
+
+## 依赖与运行
+
+需要 Python 3.8+，安装依赖：
+
+
+pip install PyQt5 Pillow
+
+进入项目根目录，执行：
+
+
+python main.py
+
+
+Linux 用户可能需要通过包管理器安装 PyQt5（例如 `apt install python3-pyqt5`）。
+
+## 语言切换
+
+程序启动时自动检测系统语言，中文用户会看到中文界面，其他环境默认英文。运行过程中可通过菜单 `Language` -> `中文` / `English` 切换，所有界面文字即时更新。
+
+## 文件结构
+
+- `main.py`          主程序入口
+- `core/`            水印核心逻辑、字体管理、数据模型
+- `ui/`              图形界面组件（调整面板、交互预览、底部状态栏）
+- `localization/`    多语言字符串定义
+- `run_gui.sh`       可选的自动虚拟环境启动脚本
+
+## 许可证
+
 MIT License
