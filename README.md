@@ -73,3 +73,9 @@ MIT License
 | 底部信息栏 | `FooterBar` | `ui/footer_bar.py` |
 | 多语言管理（设置与翻译） | `set_language`, `tr` | `localization/__init__.py` |
 | 应用主窗口 | `MainWindow` | `main.py` |
+
+## 待完善跨平台事项
+
+- Windows/Linux 系统字体路径适配（当前仅扫描 macOS 常用目录，其他平台默认列表为空）。
+- 虚拟环境启动脚本 `run_gui.sh` 仅适用于 macOS/Linux，Windows 环境下需额外编写 `.bat` 脚本或手动运行。
+- 多格式输出及部分高级编辑功能尚在开发中，跨平台行为尚未验证。
