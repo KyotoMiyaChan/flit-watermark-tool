@@ -17,7 +17,10 @@ class AdjustmentPanel(QWidget):
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.fonts = scan_fonts()
+        fonts = scan_fonts()
+        if not fonts:
+            fonts = {"Default": ""}
+        self.fonts = fonts
         self.font_names = sorted(self.fonts.keys())
         self._updating = False
 

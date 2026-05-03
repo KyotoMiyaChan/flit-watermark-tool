@@ -3,8 +3,8 @@ import sys, os, subprocess
 from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout,
                              QHBoxLayout, QFrame, QMessageBox, QFileDialog,
                              QMenuBar, QAction, QMainWindow)
-from PyQt5.QtCore import Qt, QPointF
-from PyQt5.QtGui import QImage, QPixmap, QColor
+from PyQt5.QtCore import Qt, QPointF, QUrl
+from PyQt5.QtGui import QImage, QPixmap, QColor, QDesktopServices
 from core import WatermarkParams, apply_watermark
 from core.watermark_element import WatermarkElement
 from ui.adjustment_panel import AdjustmentPanel
@@ -16,7 +16,9 @@ from PIL import Image
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        QApplication.setStyle('macOS')
+        # 仅在 macOS 时设置原生风格
+        if sys.platform == 'darwin':
+            QApplication.setStyle('macOS')
         self.original_image = None
         self.generated_path = None
         self.main_element = WatermarkElement()
@@ -200,14 +202,19 @@ class MainWindow(QMainWindow):
             QMessageBox.critical(self, "错误", tr("status_gen_fail", e))
 
     def copy_to_clipboard(self):
-        if not self.generated_path: return
-        subprocess.run(["osascript", "-e",
-            f'set the clipboard to (read (POSIX file "{os.path.abspath(self.generated_path)}") as JPEG picture)'])
-        self.adjust.set_status(tr("status_copied"))
+        if not self.generated_path:
+            return
+        clipboard = QApplication.clipboard()
+        image = QImage(self.generated_path)
+        if not image.isNull():
+            clipboard.setImage(image)
+            self.adjust.set_status(tr("status_copied"))
+        else:
+            self.adjust.set_status(tr("status_copy_fail"))
 
     def open_folder(self):
         folder = os.path.dirname(self.generated_path) if self.generated_path else os.getcwd()
-        subprocess.Popen(["open", folder])
+        QDesktopServices.openUrl(QUrl.fromLocalFile(folder))
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
