@@ -56,3 +56,20 @@ MIT License
 5. 翻新 UI 界面
 6. 翻新教程文档
 7. 发布多平台 Release
+
+## 功能与核心实现
+
+| 功能 | 函数/类 | 文件 |
+|------|---------|------|
+| 水印参数封装 | `WatermarkParams` | `core/watermark_core.py` |
+| 图片水印渲染 | `apply_watermark` | `core/watermark_core.py` |
+| 系统字体扫描 | `scan_fonts` | `core/font_manager.py` |
+| 字体文件加载 | `load_font` | `core/font_manager.py` |
+| 主文字数据模型 | `WatermarkElement` | `core/watermark_element.py` |
+| 调整面板控件与参数读写 | `AdjustmentPanel` | `ui/adjustment_panel.py` |
+| 交互式预览画布 | `InteractivePreviewWidget` | `ui/interactive_preview.py` |
+| 画布可编辑文本项 | `WatermarkSimpleItem` | `ui/interactive_preview.py` |
+| 预览面板容器 | `PreviewPanel` | `ui/preview_panel.py` |
+| 底部信息栏 | `FooterBar` | `ui/footer_bar.py` |
+| 多语言管理（设置与翻译） | `set_language`, `tr` | `localization/__init__.py` |
+| 应用主窗口 | `MainWindow` | `main.py` |
