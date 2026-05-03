@@ -1,6 +1,6 @@
 STRINGS = {
     "zh": {
-        "app_title": "封面预览生成器",
+        "app_title": "Flit Watermark Tool",
         "menu_file": "文件",
         "menu_open": "打开图片",
         "menu_exit": "退出",
@@ -9,7 +9,7 @@ STRINGS = {
         "menu_lang_en": "English",
         "menu_help": "帮助",
         "menu_about": "关于",
-        "about_text": "封面预览生成器\nMIT License\n© KyotoMiyaChan 2026",
+        "about_text": "Flit Watermark Tool\n轻量级跨平台图片水印编辑器\nMIT License\n© KyotoMiyaChan 2026",
         "btn_browse": "浏览",
         "placeholder_img": "选择图片...",
         "label_text": "文字:",
@@ -37,7 +37,7 @@ STRINGS = {
         "footer_star": "｜ 本软件开源免费，点个star支持一下吧",
     },
     "en": {
-        "app_title": "Cover Preview Generator",
+        "app_title": "Flit Watermark Tool",
         "menu_file": "File",
         "menu_open": "Open Image",
         "menu_exit": "Exit",
@@ -46,7 +46,7 @@ STRINGS = {
         "menu_lang_en": "English",
         "menu_help": "Help",
         "menu_about": "About",
-        "about_text": "Cover Preview Generator\nMIT License\n© KyotoMiyaChan 2026",
+        "about_text": "Flit Watermark Tool\nLightweight cross-platform image watermark editor\nMIT License\n© KyotoMiyaChan 2026",
         "btn_browse": "Browse",
         "placeholder_img": "Select image...",
         "label_text": "Text:",
